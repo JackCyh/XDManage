@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.conf',
     'captcha',
     'pure_pagination',#分页
+    'DjangoUeditor',
 ]
 
 MIDDLEWARE = [

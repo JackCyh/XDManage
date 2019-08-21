@@ -1,5 +1,5 @@
 # apps/utils/email_send.py
-
+import smtplib
 from random import Random
 from django.core.mail import send_mail
 
@@ -17,8 +17,9 @@ def random_str(random_length=8):
         str += chars[random.randint(0, length)]
     return str
 
+
 # 发送注册邮件
-def     send_register_eamil(email, send_type="register"):
+def  send_register_eamil(email, send_type="register"):
     # 发送之前先保存到数据库，到时候查询链接是否存在
     # 实例化一个EmailVerifyRecord对象
     email_record = EmailVerifyRecord()
@@ -31,8 +32,8 @@ def     send_register_eamil(email, send_type="register"):
     email_record.save()
 
     # 定义邮件内容:
-    email_title = ""
-    email_body = ""
+    # email_title = ""
+    # email_body = ""
 
     if send_type == "register":
         email_title = "注册激活链接"

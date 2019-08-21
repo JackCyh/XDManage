@@ -360,9 +360,9 @@ class RelatedFieldSearchFilter(FieldFilter):
             other_model._meta.app_label, other_model._meta.model_name))
         self.label = self.label_for_value(other_model, rel_name, self.lookup_exact_val) if self.lookup_exact_val else ""
         self.choices = '?'
-        if field.rel.limit_choices_to:
-            for i in list(field.rel.limit_choices_to):
-                self.choices += "&_p_%s=%s" % (i, field.rel.limit_choices_to[i])
+        if field.remote_field.limit_choices_to:
+            for i in list(field.remote_field.limit_choices_to):
+                self.choices += "&_p_%s=%s" % (i, field.remote_field.limit_choices_to[i])
             self.choices = format_html(self.choices)
 
     def label_for_value(self, other_model, rel_name, value):

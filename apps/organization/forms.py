@@ -1,14 +1,15 @@
-import re
+# organization/forms.py
 
+import re
 from django import forms
 from operation.models import UserAsk
 
 
-class UserAskForm(forms.Form):
-    '''我要咨询'''
+class UserAskForm(forms.ModelForm):
+
     class Meta:
         model = UserAsk
-        fields = ['name','mobile','course_name']
+        fields = ['name', 'mobile', 'course_name']
 
     def clean_mobile(self):
         """
